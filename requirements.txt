@@ -1,0 +1,48 @@
+# ── Core ──────────────────────────────────────────────────────────────────────
+jupyter>=1.0.0
+ipykernel>=6.0.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+pydantic>=2.0.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+scikit-learn>=1.4.0
+tqdm>=4.66.0
+
+# ── Claude API (Path A) ───────────────────────────────────────────────────────
+anthropic>=0.40.0
+
+# ── Ollama (Path B) ───────────────────────────────────────────────────────────
+ollama>=0.1.0
+
+# ── PDF Loading (NB03) ───────────────────────────────────────────────────────
+pypdf>=4.0.0
+
+# ── Tokenization ─────────────────────────────────────────────────────────────
+tiktoken>=0.7.0
+sentencepiece>=0.2.0
+
+# ── HuggingFace Training Stack (Path B — HF+TRL) ─────────────────────────────
+transformers>=4.46.0
+peft>=0.14.0
+trl>=0.13.0
+datasets>=3.0.0
+accelerate>=1.0.0
+
+# ── Mac-Native Training (Path A — MLX, Apple Silicon only) ───────────────────
+mlx-lm>=0.20.0 ; platform_system == "Darwin" and platform_machine == "arm64"
+
+# ── QLoRA / 4-bit quantization (Path B — Linux/CUDA only) ────────────────────
+bitsandbytes>=0.44.0 ; platform_system == "Linux"
+
+# ── Evaluation ───────────────────────────────────────────────────────────────
+# lighteval>=0.6.0  # optional, uncomment if Python >= 3.10
+
+# ── HW4 RAG Integration (NB08) ───────────────────────────────────────────────
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
+rank-bm25>=0.2.2
+
+# ── Bonus (optional) ─────────────────────────────────────────────────────────
+# distilabel>=1.4.0   # advanced synthetic data pipelines
+# gradio>=4.0.0       # model demo UI
