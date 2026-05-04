@@ -213,6 +213,7 @@ outputs/*
 !outputs/homework_reflection.md
 !outputs/lora_variants_scoreboard.json
 !outputs/synthetic_dataset.json
+!outputs/synthetic_dataset.jsonl
 !outputs/eval_scoreboard.json
 !outputs/preference_tuning_results.json
 !outputs/my_project_update.md
