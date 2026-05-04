@@ -1,0 +1,42 @@
+{
+  "vanilla": {
+    "trainable_params": 4816896,
+    "total_params": 494032896,
+    "trainable_pct": 0.975,
+    "use_rslora": false,
+    "use_dora": false,
+    "init_lora_weights": "True",
+    "rank": 16,
+    "alpha": 32
+  },
+  "rslora": {
+    "trainable_params": 4816896,
+    "total_params": 494032896,
+    "trainable_pct": 0.975,
+    "use_rslora": true,
+    "use_dora": false,
+    "init_lora_weights": "True",
+    "rank": 16,
+    "alpha": 32
+  },
+  "dora": {
+    "trainable_params": 4967424,
+    "total_params": 494032896,
+    "trainable_pct": 1.0055,
+    "use_rslora": false,
+    "use_dora": true,
+    "init_lora_weights": "True",
+    "rank": 16,
+    "alpha": 32
+  },
+  "pissa": {
+    "trainable_params": 4816896,
+    "total_params": 494032896,
+    "trainable_pct": 0.975,
+    "use_rslora": false,
+    "use_dora": false,
+    "init_lora_weights": "pissa",
+    "rank": 16,
+    "alpha": 32
+  }
+}

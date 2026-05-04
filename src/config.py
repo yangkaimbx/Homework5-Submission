@@ -8,7 +8,7 @@ PATH = "A"
 
 # Default LLM models (for Claude API and Ollama inference)
 CLAUDE_MODEL = "claude-sonnet-4-6"
-OLLAMA_MODEL = "qwen3.5:27b"
+OLLAMA_MODEL = "qwen3.5:9b"
 
 # Base model for fine-tuning (HuggingFace Hub ID)
 BASE_MODEL_HF  = "Qwen/Qwen2.5-0.5B-Instruct"

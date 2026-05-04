@@ -191,7 +191,7 @@ class PrefRunner:
             raise ImportError("Install trl: pip install trl")
 
         try:
-            from peft import LoraConfig, TaskType, get_peft_model
+            from peft import LoraConfig, TaskType, PeftModel
         except ImportError:
             raise ImportError("Install peft: pip install peft")
 
@@ -219,13 +219,16 @@ class PrefRunner:
 
         print("[preference_tuner] Starting DPO training...")
         tk_kwarg = self._tokenizer_kwarg(DPOTrainer)
-        trainer = DPOTrainer(
-            model=model,
-            args=dpo_config,
-            train_dataset=dataset,
-            peft_config=lora_config,
-            **{tk_kwarg: tokenizer},
-        )
+        trainer_kwargs = {
+            "model": model,
+            "args": dpo_config,
+            "train_dataset": dataset,
+            tk_kwarg: tokenizer,
+        }
+        if not isinstance(model, PeftModel):
+            trainer_kwargs["peft_config"] = lora_config
+        trainer = DPOTrainer(**trainer_kwargs)
+
         result = trainer.train()
         trainer.save_model(output_dir)
         print(f"[preference_tuner] DPO complete: loss={result.training_loss:.4f}")

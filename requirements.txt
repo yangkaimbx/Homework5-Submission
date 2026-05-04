@@ -23,6 +23,9 @@ tiktoken>=0.7.0
 sentencepiece>=0.2.0
 
 # ── HuggingFace Training Stack (Path B — HF+TRL) ─────────────────────────────
+# CUDA 12.6 torch wheel for the course Linux GPU environment.
+--extra-index-url https://download.pytorch.org/whl/cu126
+torch==2.11.0+cu126 ; platform_system == "Linux" and platform_machine == "x86_64"
 transformers>=4.46.0
 peft>=0.14.0
 trl>=0.13.0

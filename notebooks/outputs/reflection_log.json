@@ -1,0 +1,20 @@
+[
+  {
+    "notebook": "08",
+    "title": "Project Integration",
+    "reflection": "I added a second general-qa skill with triggers such as 'what is', 'explain', and 'how does', then registered it alongside the resume skill. The resolver routed 'What is Scott's background?' to the resume skill because it matched  the resume/background keywords. It routed 'What is gradient descent?' to  general-qa because it matched the general 'what is' trigger and did not match  resume-specific keywords. This confirms that resume questions still go to the fine-tuned resume skill while unrelated knowledge questions use the base Ollama model.",
+    "timestamp": "2026-05-04T15:34:08.704625"
+  },
+  {
+    "notebook": "08",
+    "title": "Project Integration",
+    "reflection": "I added a second general-qa skill with triggers such as 'what is', 'explain', and 'how does', then registered it alongside the resume skill. The resolver routed 'What is Scott's background?' to the resume skill because it matched  the resume/background keywords. It routed 'What is gradient descent?' to  general-qa because it matched the general 'what is' trigger and did not match  resume-specific keywords. This confirms that resume questions still go to the fine-tuned resume skill while unrelated knowledge questions use the base Ollama model.",
+    "timestamp": "2026-05-04T15:45:34.253932"
+  },
+  {
+    "notebook": "08",
+    "title": "Project Integration",
+    "reflection": "I added a second general-qa skill with triggers such as 'what is', 'explain', and 'how does', then registered it alongside the resume skill. The resolver routed 'What is Scott's background?' to the resume skill because it matched  the resume/background keywords. It routed 'What is gradient descent?' to  general-qa because it matched the general 'what is' trigger and did not match  resume-specific keywords. This confirms that resume questions still go to the fine-tuned resume skill while unrelated knowledge questions use the base Ollama model.",
+    "timestamp": "2026-05-04T15:59:43.221214"
+  }
+]

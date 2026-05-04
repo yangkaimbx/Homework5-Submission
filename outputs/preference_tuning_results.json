@@ -1,0 +1,12 @@
+{
+  "dpo_training": {
+    "method": "dpo",
+    "train_loss": 0.3896280288696289,
+    "steps": 10,
+    "adapter_path": "../outputs/dpo_adapter"
+  },
+  "dpo_dataset_size": 5,
+  "manual_pairs_count": 3,
+  "grpo_reward_fn": "make_gsm8k_reward_fn (pattern: ####\\s*-?\\d+)",
+  "resume_reward_fn": "make_resume_qa_reward_fn (keywords + min_words check)"
+}

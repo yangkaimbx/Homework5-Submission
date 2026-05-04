@@ -215,26 +215,33 @@ class LLMClient:
         import re
 
         try:
-            # Build chat messages (chat API handles system prompt properly
-            # and works correctly with qwen3.5 thinking models)
+            # Build chat messages so the API handles the system prompt properly.
             messages = []
             if system:
                 messages.append({"role": "system", "content": system})
             messages.append({"role": "user", "content": prompt})
 
+            model_lc = model.lower()
+            payload = {
+                "model": model,
+                "messages": messages,
+                "stream": False,
+                "options": {
+                    # Keep a little extra room for Qwen3.x in case the local
+                    # Ollama version ignores the top-level "think" flag.
+                    "num_predict": max_tokens * 4 if "qwen3" in model_lc else max_tokens,
+                    "temperature": temperature,
+                },
+            }
+            if "qwen3" in model_lc:
+                # Qwen3.x thinking models can spend the whole num_predict
+                # budget on hidden reasoning and return empty visible content.
+                # Intro notebook calls expect a direct answer, so disable it.
+                payload["think"] = False
+
             response = requests.post(
                 'http://localhost:11434/api/chat',
-                json={
-                    "model": model,
-                    "messages": messages,
-                    "stream": False,
-                    "options": {
-                        # qwen3.5 uses hidden thinking tokens that count against
-                        # num_predict, so we need a larger budget to get visible output
-                        "num_predict": max_tokens * 4 if "qwen3" in model.lower() else max_tokens,
-                        "temperature": temperature,
-                    },
-                },
+                json=payload,
                 timeout=300,
             )
 

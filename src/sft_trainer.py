@@ -172,7 +172,7 @@ class SFTRunner:
             learning_rate=learning_rate,
             warmup_ratio=warmup_ratio,
             weight_decay=weight_decay,
-            max_seq_length=max_seq_length,
+            max_length=max_seq_length,
             logging_steps=10,
             save_strategy="epoch",
             fp16=not is_mac and not use_4bit,
@@ -185,7 +185,7 @@ class SFTRunner:
             model=model,
             args=sft_config,
             train_dataset=dataset,
-            tokenizer=tokenizer,
+            processing_class=tokenizer,
         )
 
         train_result = trainer.train()
